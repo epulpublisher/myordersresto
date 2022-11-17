@@ -43,8 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | This is not exactly a route, but allows you to automatically route
 | controller and method names that contain dashes. '-' isn't a valid
 | class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
+| When you set this option to TRUE, it will replace ALL dashes with
+| underscores in the controller and method URI segments.
 |
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
@@ -52,3 +52,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['api/mahasiswa']='api/GetMahasiswa/index';
+$route['api/mahasiswa/nim/(:any)']='api/GetMahasiswa/MahasiswaById/$1';
+$route['api/mahasiswa/add']='api/GetMahasiswa/AddMahasiswa';
+$route['api/mahasiswa/update/(:any)']='api/GetMahasiswa/UpdateMahasiswa/$1';
+$route['api/mahasiswa/delete/(:any)']='api/GetMahasiswa/DeleteMahasiswa/$1';
+
+$route['mahasiswa']='Mahasiswa/index';
+$route['mahasiswa/create']='Mahasiswa/create';
+$route['mahasiswa/edit']='Mahasiswa/edit';
+$route['mahasiswa/delete']='Mahasiswa/delete';
+
