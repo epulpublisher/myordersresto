@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,18 +49,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home';
+$route['default_controller'] = 'beranda';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['api/mahasiswa']='api/GetMahasiswa/index';
-$route['api/mahasiswa/nim/(:any)']='api/GetMahasiswa/MahasiswaById/$1';
-$route['api/mahasiswa/add']='api/GetMahasiswa/AddMahasiswa';
-$route['api/mahasiswa/update/(:any)']='api/GetMahasiswa/UpdateMahasiswa/$1';
-$route['api/mahasiswa/delete/(:any)']='api/GetMahasiswa/DeleteMahasiswa/$1';
+$route['api/mahasiswa'] = 'api/GetMahasiswa/index';
+$route['api/mahasiswa/nim/(:any)'] = 'api/GetMahasiswa/MahasiswaById/$1';
+$route['api/mahasiswa/add'] = 'api/GetMahasiswa/AddMahasiswa';
+$route['api/mahasiswa/update/(:any)'] = 'api/GetMahasiswa/UpdateMahasiswa/$1';
+$route['api/mahasiswa/delete/(:any)'] = 'api/GetMahasiswa/DeleteMahasiswa/$1';
 
-$route['mahasiswa']='Mahasiswa/index';
-$route['mahasiswa/create']='Mahasiswa/create';
-$route['mahasiswa/edit']='Mahasiswa/edit';
-$route['mahasiswa/delete']='Mahasiswa/delete';
-
+$route['mahasiswa'] = 'Mahasiswa/index';
+$route['mahasiswa/create'] = 'Mahasiswa/create';
+$route['mahasiswa/edit'] = 'Mahasiswa/edit';
+$route['mahasiswa/delete'] = 'Mahasiswa/delete';
