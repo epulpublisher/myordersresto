@@ -33,13 +33,13 @@
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#"><img src="<?= base_url('assets/'); ?>img/logo.png" alt=""></a>
+			<a href="#"><img src="<?= base_url('assets/'); ?>img/logo-resto.png" alt=""></a>
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-				<li><a href="<?= base_url("home/shopingcart"); ?>"><i class="fa fa-shopping-bag"></i> <span>69</span></a></li>
+				<li><a href="<?= base_url("home/shopingcart"); ?>"><i class="fa fa-shopping-bag"></i><span><?= $jml_keranjang; ?></span></a></li>
 			</ul>
-			<div class="header__cart__price">item: <span>Rp. mobile Ubah</span></div>
+			<div class="header__cart__price">Total: <span>Rp. <?= $rp_keranjang; ?></span></div>
 		</div>
 		<div class="humberger__menu__widget">
 
@@ -50,7 +50,7 @@
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
 				<li><a href="<?= base_url("home"); ?>">Pesan</a></li>
-				<li><a href="<?= base_url("beranda/kontak"); ?>">Kontak</a></li>
+				<li><a href="<?= base_url("home/kontak"); ?>">Kontak</a></li>
 				<li><a href="<?= base_url("home/myprofile"); ?>">Profil Saya</a></li>
 			</ul>
 		</nav>
@@ -92,14 +92,14 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/'); ?>img/logo.png" alt=""></a>
+						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/'); ?>img/logo-resto.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
 							<li><a href="<?= base_url('home'); ?>">Pesan</a></li>
-							<li><a href="<?= base_url("beranda/kontak"); ?>">Kontak</a></li>
+							<li><a href="<?= base_url("home/kontak"); ?>">Kontak</a></li>
 							<li><a href="<?= base_url("home/myprofile"); ?>">Profil Saya</a></li>
 						</ul>
 					</nav>
@@ -107,9 +107,9 @@
 				<div class="col-lg-3">
 					<div class="header__cart">
 						<ul>
-							<li><a href="<?= base_url("home/shopingcart"); ?>"><i class="fa fa-shopping-bag"></i> <span>69</span></a></li>
+							<li><a href="<?= base_url("home/shopingcart"); ?>"><i class="fa fa-shopping-bag"></i> <span><?= $jml_keranjang; ?></span></a></li>
 						</ul>
-						<div class="header__cart__price">item: <span>Rp. Ubah</span></div>
+						<div class="header__cart__price">Total: <span>Rp. <?= $rp_keranjang['total_harga']; ?></span></div>
 					</div>
 				</div>
 			</div>
@@ -128,35 +128,27 @@
 					<div class="hero__categories">
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i>
-							<span>Kategori</span>
+							<span>Informasi</span>
 						</div>
 						<ul>
-							<li><a href="#">Makanan</a></li>
-							<li><a href="#">Minuman</a></li>
+							<li><a href="#">Panduan Pengguna</a></li>
+							<li><a href="#">Tentang Kami</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
 
-								<input type="text" placeholder="Mau makan apa?">
-								<button type="submit" class="site-btn">Cari</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-phone"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>+62 822 1839 4946</h5>
-								<span>Layanan 24/7</span>
-							</div>
-						</div>
+					<div class="hero__search__phone__icon">
+						<i class="fa fa-phone"></i>
 					</div>
+					<div class="hero__search__phone__text">
+						<h5>+62 822 1839 4946</h5>
+						<span>Layanan 24/7</span>
+					</div>
+
 				</div>
 			</div>
+		</div>
 		</div>
 	</section>
 	<!-- Hero Section End -->
