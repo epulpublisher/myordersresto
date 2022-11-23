@@ -63,3 +63,7 @@ $route['mahasiswa'] = 'Mahasiswa/index';
 $route['mahasiswa/create'] = 'Mahasiswa/create';
 $route['mahasiswa/edit'] = 'Mahasiswa/edit';
 $route['mahasiswa/delete'] = 'Mahasiswa/delete';
+
+
+$route['home/update_cart/(:any)'] = 'home/update_cart/$1';
+$route['home/post_cart/(:any)'] = 'home/post_cart/$1';

@@ -15,105 +15,75 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td class="shoping__cart__item">
-									<img src="<?= base_url('assets/'); ?>img/cart/cart-1.jpg" alt="">
-									<h5>Vegetable’s Package</h5>
-								</td>
-								<td class="shoping__cart__price">
-									$55.00
-								</td>
-								<td class="shoping__cart__quantity">
-									<div class="quantity">
-										<from>
-											<input type="hidden" value="">
-											</form>
-									</div>
-								</td>
-								<td class="shoping__cart__total">
-									$110.00
-								</td>
-								<td class="shoping__cart__item__close">
-									<span class="icon_close"></span>
-								</td>
-							</tr>
-
-
-							<tr>
-								<td class="shoping__cart__item">
-									<img src="<?= base_url('assets/'); ?>img/cart/cart-2.jpg" alt="">
-									<h5>Fresh Garden Vegetable</h5>
-								</td>
-								<td class="shoping__cart__price">
-									$39.00
-								</td>
-								<td class="shoping__cart__quantity">
-									<div class="quantity">
-										<div class="pro-qty">
-											<input type="text" value="1">
-										</div>
-									</div>
-								</td>
-								<td class="shoping__cart__total">
-									$39.99
-								</td>
-								<td class="shoping__cart__item__close">
-									<span class="icon_close"></span>
-								</td>
-							</tr>
-							<tr>
-								<td class="shoping__cart__item">
-									<img src="<?= base_url('assets/'); ?>img/cart/cart-3.jpg" alt="">
-									<h5>Organic Bananas</h5>
-								</td>
-								<td class="shoping__cart__price">
-									$69.00
-								</td>
-								<td class="shoping__cart__quantity">
-									<div class="quantity">
-										<div class="pro-qty">
-											<input type="text" value="1">
-										</div>
-									</div>
-								</td>
-								<td class="shoping__cart__total">
-									$69.99
-								</td>
-								<td class="shoping__cart__item__close">
-									<span class="icon_close"></span>
-								</td>
-							</tr>
+							<?php
+							foreach ($bymember_keranjang as $b) {
+							?>
+								<tr>
+									<form action="<?php echo base_url(); ?>home/update_cart/<?= $b['id']; ?>" method="post">
+										<td class="shoping__cart__item">
+											<img src="http://localhost/myadminresto/assets/img/upload/<?= $b['image']; ?>" width="200" height="200" alt="">
+											<h5><?= $b['nama_menu']; ?></h5>
+										</td>
+										<td class="shoping__cart__price">
+											Rp.<?= $b['harga']; ?>
+										</td>
+										<td class="shoping__cart__quantity">
+											<div class="quantity">
+												<div class="pro-qty">
+													<input type="text" name="qty" value="<?= $b['qty']; ?>">
+												</div>
+											</div>
+										</td>
+										<td class="shoping__cart__total">
+											Rp.<?= $b['total_harga']; ?>
+										</td>
+										<td>
+											<div class="shoping__cart__btns">
+												<a href="<?php echo base_url(); ?>home/delete_cart/<?= $b['id']; ?>" class="primary-btn cart-btn">Hapus</a>
+											</div>
+										</td>
+										<td>
+											<input type="hidden" name="harga" value="<?= $b['harga']; ?>">
+											<div class="shoping__cart__btns">
+												<button type="submit" class="primary-btn cart-btn" style="border:none">Update</button>
+											</div>
+										</td>
+									</form>
+								</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="shoping__cart__btns">
-					<a href="<?php echo base_url(); ?>" class="primary-btn cart-btn">Lanjut pilih menu</a>
-
-				</div>
-			</div>
+		<div class=" row">
 			<div class="col-lg-6">
-				<div class="shoping__continue">
-					<div class="shoping__discount">
-						<h5>Discount Codes</h5>
-						<form action="#">
-							<input type="text" placeholder="Enter your coupon code">
-							<button type="submit" class="site-btn">APPLY COUPON</button>
-						</form>
-					</div>
+				<div class="shoping__cart__btns">
+					<a href="<?php echo base_url(); ?>home" class="primary-btn cart-btn">Lanjut pilih menu</a>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="shoping__checkout">
-					<h5>Total Harga</h5>
-					<ul>
-						<li>Subtotal <span>$454.98</span></li>
-						<li>Total <span>$454.98</span></li>
-					</ul>
-					<a href="#" class="primary-btn">Checkout pesanan</a>
+					<form action="<?php echo base_url(); ?>home/post_cart/<?= $user['id']; ?>" method="post">
+						<h5>Booking Pesanan</h5>
+						<ul>
+							<li>Total <span>Rp. <?= $rp_keranjang['total_harga']; ?></span></li>
+							<li>Masukan ID Nomor Meja
+								<span>
+									<input name="no_meja" list="no_meja">
+									<datalist id="no_meja">
+										<option value="A10B">
+										<option value="B11A">
+										<option value="C12D">
+										<option value="D13C">
+										<option value="E14F">
+									</datalist>
+								</span>
+							</li>
+						</ul>
+						<input type="hidden" name="total_harga" value="<?= $rp_keranjang['total_harga']; ?>">
+						<button type="submit" class="primary-btn" style="border:none">Checkout pesanan</button>
+					</form>
 				</div>
 			</div>
 		</div>

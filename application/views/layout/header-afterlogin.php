@@ -39,7 +39,7 @@
 			<ul>
 				<li><a href="<?= base_url("home/shopingcart"); ?>"><i class="fa fa-shopping-bag"></i><span><?= $jml_keranjang; ?></span></a></li>
 			</ul>
-			<div class="header__cart__price">Total: <span>Rp. <?= $rp_keranjang; ?></span></div>
+			<div class="header__cart__price">Total: <span>Rp. <?= $rp_keranjang['total_harga']; ?></span></div>
 		</div>
 		<div class="humberger__menu__widget">
 
