@@ -10,7 +10,7 @@
                         <div class="card">
                         <div class="col-auto">
                             <br>
-                            <img src="<?= base_url('assets/'); ?>img/product/product-4.jpg" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets/'); ?>img/kontak/kontak-1.jpg" alt="" class="img-fluid">
                         </div>
                             <div class="card-body">
                                 <h5 class="card-title">Customer Service</h5>
@@ -24,7 +24,7 @@
                         <div class="card">
                         <div class="col-auto">
                             <br>
-                            <img src="<?= base_url('assets/'); ?>img/product/product-4.jpg" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets/'); ?>img/kontak/kontak-2.jpg" alt="" class="img-fluid">
                         </div>
                             <div class="card-body">
                                 <h5 class="card-title">Pengaduan</h5>
