@@ -4,19 +4,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>Myordersresto | <?= $judul; ?></title>
-	<link rel="stylesheet" href="http://localhost/myordersresto/assets/invoice/style.css" media="all" />
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/invoice/style.css" media="all" />
 </head>
 
 <body>
 	<header class="clearfix">
 		<div id="logo">
-			<img src="http://localhost/myordersresto/assets/invoice/logo.jpg">
+			<img src="<?= base_url(); ?>assets/invoice/logo.jpg">
 		</div>
 		<div id="company">
 			<h2 class="name">Bina Sarana Resto</h2>
 			<div>Jl Kramat Raya No.98, Jakarta</div>
 			<div>+62 82.111.111</div>
-			<div><a href="mailto:company@example.com">resto@kelompok2.com</a></div>
+			<div><a href="resto@kelompok2.com">resto@kelompok2.com</a></div>
 		</div>
 		</div>
 	</header>
@@ -26,7 +26,7 @@
 				<div class="to">INVOICE KEPADA:</div>
 				<h2 class="name"><?= $user['nama']; ?></h2>
 				<div class="address"><?= $user['tlp']; ?></div>
-				<div class="email"><a href="mailto:john@example.com"><?= $user['email']; ?></a></div>
+				<div class="email"><a href="<?= $user['email']; ?>"><?= $user['email']; ?></a></div>
 			</div>
 			<div id="invoice">
 				<h3>KODE PESANAN: <?= $bykode_pesanan['kode_pesanan']; ?></h3>
@@ -38,7 +38,7 @@
 		<table border="0" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
-					<th class="no">#</th>
+					<th class="total">NO</th>
 					<th class="desc">MENU</th>
 					<th class="unit">HARGA</th>
 					<th class="qty">QTY</th>
@@ -47,16 +47,17 @@
 			</thead>
 			<tbody>
 				<?php
+				$b = 1;
 				foreach ($dt_pesanan as $dt) {
 				?>
 					<tr>
-						<td class="no">01</td>
+						<td class="no"><?= $b++; ?></td>
 						<td class="desc">
 							<h3><?= $dt['nama_menu']; ?></h3>
 						</td>
-						<td class="unit">Rp.<?= $dt['harga']; ?></td>
+						<td class="unit"><?php echo rupiah($dt['harga']); ?></td>
 						<td class="qty"><?= $dt['qty']; ?></td>
-						<td class="total">Rp.<?= $dt['total_harga']; ?></td>
+						<td class="total"><?php echo rupiah($dt['total_harga']); ?></td>
 					</tr>
 				<?php } ?>
 			</tbody>
@@ -64,7 +65,7 @@
 				<tr>
 					<td colspan="2"></td>
 					<td colspan="2">TOTAL</td>
-					<td>Rp.<?= $bykode_pesanan['total_bayar']; ?></td>
+					<td><?php echo rupiah($bykode_pesanan['total_bayar']); ?></td>
 				</tr>
 			</tfoot>
 		</table>

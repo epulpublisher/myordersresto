@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'ceklogin', 'string');
+$autoload['helper'] = array('url', 'ceklogin', 'string', 'format_rupiah', 'url_myadminresto', 'form');
 
 /*
 | -------------------------------------------------------------------

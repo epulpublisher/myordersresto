@@ -45,7 +45,7 @@
 		<div class="humberger__menu__widget">
 
 			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Keluar</a>
+				<a href="<?= base_url('member/logout'); ?>"><i class="fa fa-user"></i> Keluar</a>
 			</div>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">

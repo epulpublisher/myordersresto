@@ -15,6 +15,8 @@
 
 <!-- Product Section Begin -->
 <section class="product spad">
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
+	<div class="user-data" data-user="<?= $user['nama']; ?>"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-5">
@@ -44,15 +46,17 @@
 							?>
 								<div class="col-lg-4">
 									<div class="product__discount__item">
-										<div class="product__discount__item__pic set-bg" data-setbg="http://localhost/myadminresto/assets/img/upload/<?= $p['image']; ?>">
+										<div class="product__discount__item__pic set-bg" data-setbg="<?php echo myadminresto(); ?>assets/img/upload/<?= $p['image']; ?>">
 											<ul class="product__item__pic__hover">
 												<li><a href="<?= base_url('home/keranjang/'); ?><?= $user['id']; ?>/<?= $p['id']; ?>"><i class="fa fa-shopping-cart"></i></a></li>
 											</ul>
 										</div>
 										<div class="product__discount__item__text">
-											<span><?= $p['kategori']; ?></span>
-											<h5><a href="#"><?= $p['nama_menu']; ?></a></h5>
-											<div class="product__item__price">Rp.<?= $p['harga']; ?><span>Rp.<?= $p['harga_promo']; ?></span></div>
+											<h7><?= $p['status']; ?></h7>
+											</br>
+											</br>
+											<h5><?= $p['nama_menu']; ?></h5>
+											<div class="product__item__price"><?php echo rupiah($p['harga_promo']); ?><span><?php echo rupiah($p['harga']); ?></span></div>
 										</div>
 									</div>
 								</div>
@@ -63,25 +67,28 @@
 				<div class="section-title product__discount__title">
 					<h2>Semua</h2>
 				</div>
-				<?php
-				foreach ($menu as $m) {
-				?>
-					<div class="row">
+				<div class="row">
+					<?php
+					foreach ($menu as $m) {
+					?>
 						<div class="col-lg-4 col-md-6 col-sm-6">
 							<div class="product__item">
-								<div class="product__item__pic set-bg" data-setbg="http://localhost/myadminresto/assets/img/upload/<?= $m['image']; ?>">
+								<div class="product__item__pic set-bg" data-setbg="<?php echo myadminresto(); ?>assets/img/upload/<?= $m['image']; ?>">
 									<ul class="product__item__pic__hover">
 										<li><a href="<?= base_url('home/keranjang/'); ?><?= $user['id']; ?>/<?= $m['id']; ?>"><i class="fa fa-shopping-cart"></i></a></li>
 									</ul>
 								</div>
 								<div class="product__item__text">
-									<h6><a href="#"><?= $m['nama_menu']; ?></a></h6>
-									<h5>Rp.<?= $m['harga']; ?></h5>
+									<h7><?= $m['status']; ?></h7>
+									</br>
+									</br>
+									<h5><?= $m['nama_menu']; ?></h5>
+									<div class="product__item__price"><?php echo rupiah($m['harga']); ?></div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<?php } ?>
+					<?php } ?>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -4,6 +4,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-7">
 				<div class="card">
+					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 					<div class="card-footer w-100 primary-btn">
 						Masuk
 					</div>
@@ -15,13 +16,13 @@
 									<form action="<?= base_url('member/login'); ?>" method="post">
 										<div class="mb-3">
 											<h6><label class="text-dark"><b>Alamat Email</b></label></h6>
-											<input type="text" autocomplete="off" autocorrect="off" name="email" id="email" class="form-control form-control-user bg-transparent border border-dark" value="" required>
+											<input type="text" name="email" id="email" class="form-control form-control-user  border-success value=" required>
 										</div>
 										<div class="mb-3">
 											<h6><label class="text-dark"><b>Kata Sandi</b></label></h6>
-											<input type="password" autocomplete="off" autocorrect="off" name="password" id="password" class="form-control form-control-user bg-transparent border border-dark" required>
+											<input type="password" name="password" id="password" class="form-control form-control-user  border-success" required>
 										</div>
-										<button type="submit" class="btn btn-outline-dark">Masuk</button>
+										<button type="submit" class="btn btn-outline-success">Masuk</button>
 									</form>
 								</div>
 								<br>

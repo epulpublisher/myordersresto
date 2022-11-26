@@ -45,12 +45,10 @@ class Member extends CI_Controller
 		$data = json_decode($response, true);
 		if ($response) {
 			$this->session->set_userdata($data);
-			echo  $this->session->userdata('nama');
+			$this->session->set_flashdata('pesan', 5);
 			redirect(base_url() . 'home');
 		} else {
-			echo "gagal";
-			exit;
-			$this->session->set_flashdata('message_login', 'Email atau Password anda salah');
+			$this->session->set_flashdata('pesan', 4);
 			$this->index();
 		}
 	}
@@ -73,16 +71,20 @@ class Member extends CI_Controller
 	function create()
 	{
 		$this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email', [
-			'valid_email' => 'Email Tidak Benar!!',
+			'valid_email' => 'Email tidak benar!',
 		]);
-		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-			'matches' => 'Password Tidak Sama!!',
-			'min_length' => 'Password Terlalu Pendek'
+		$this->form_validation->set_rules('tlp', 'Telepon', 'required|trim|numeric', [
+			'numeric' => 'Nomor telepon tidak benar!',
 		]);
-		$this->form_validation->set_rules('password2', 'Repeat Password', 'required|trim|matches[password1]');
+		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]', [
+			'min_length' => 'Minimal kata sandi 8 digit!'
+		]);
+		$this->form_validation->set_rules('password2', 'Repeat Password', 'required|trim|matches[password2]', [
+			'matches' => 'Password tidak sama!',
+		]);
 		if ($this->form_validation->run() == false) {
 			$data['judul'] = 'Registrasi Member';
-			$this->load->view('header', $data);
+			$this->load->view('member/header-login-register', $data);
 			$this->load->view('member/register');
 			$this->load->view('layout/footer');
 		} else {
@@ -108,59 +110,8 @@ class Member extends CI_Controller
 			));
 			$response = curl_exec($curl);
 			curl_close($curl);
+			$this->session->set_flashdata('pesan', 6);
 			redirect(base_url() . 'member');
-		}
-	}
-	public function ubahProfil()
-	{
-		$data['judul'] = 'Ubah Profil';
-		// $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-		$data['user'] = $this->session->userdata();
-
-		$this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim', [
-			'required' => 'Nama tidak Boleh Kosong'
-		]);
-
-
-		if ($this->form_validation->run() == false) {
-			$this->load->view('layout/header-afterlogin', $data);
-			$this->load->view('member/ubah-anggota');
-			$this->load->view('layout/footer');
-		} else {
-
-			$nama = $this->input->post('nama', true);
-			$email = $this->input->post('email', true);
-
-			//jika ada gambar yang akan diupload
-			$upload_image = $_FILES['image']['name'];
-
-			if ($upload_image) {
-				$config['upload_path'] = './assets/img/profile/';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']     = '3000';
-				$config['max_width'] = '1024';
-				$config['max_height'] = '1000';
-				$config['file_name'] = 'pro' . time();
-
-				$this->load->library('upload', $config);
-
-				if ($this->upload->do_upload('image')) {
-					$gambar_lama = $data['user']['image'];
-					if ($gambar_lama != 'default.jpg') {
-						unlink(FCPATH . 'assets/img/profile/' . $gambar_lama);
-					}
-
-					$gambar_baru = $this->upload->data('file_name');
-					$this->db->set('image', $gambar_baru);
-				} else {
-				}
-			}
-			$this->db->set('nama', $nama);
-			$this->db->where('email', $email);
-			$this->db->update('member');
-
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Profil Berhasil diubah </div>');
-			redirect('/home/ubahprofil');
 		}
 	}
 }

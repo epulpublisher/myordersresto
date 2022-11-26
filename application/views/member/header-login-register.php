@@ -35,16 +35,10 @@
 		<div class="humberger__menu__logo">
 			<a href="#"><img src="<?= base_url('assets/'); ?>img/logo.png" alt=""></a>
 		</div>
-		<div class="humberger__menu__cart">
-			<ul>
-				<li><a href="<?= base_url("home/shopingcart"); ?>"><i class="fa fa-shopping-bag"></i> <span>69</span></a></li>
-			</ul>
-			<div class="header__cart__price">item: <span>Rp. mobile Ubah</span></div>
-		</div>
 		<div class="humberger__menu__widget">
 
 			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Login</a>
+				<a href="<?= base_url('member'); ?>"><i class="fa fa-user"></i> Login</a>
 			</div>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
@@ -61,6 +55,7 @@
 		</div>
 	</div>
 	<!-- Humberger End -->
+
 
 	<!-- Header Section Begin -->
 	<header class="header">

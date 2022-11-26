@@ -8,9 +8,9 @@
     						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/'); ?>img/logo-resto.png" alt=""></a>
     					</div>
     					<ul>
-    						<li>Alamat : Jl Kramat Raya No.98, Jakarta </li>
-    						<li>Telepon : +62 82.111.111</li>
-    						<li>Email : resto@kelompok2.com</li>
+    						<li>Alamat: Jl Kramat Raya No.98, Jakarta </li>
+    						<li>Telepon: +62 82.111.111</li>
+    						<li>Email: resto@kelompok2.com</li>
     					</ul>
     				</div>
     			</div>
@@ -22,7 +22,7 @@
     					<div class="footer__copyright__text">
     						<p>
     							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    							Copyright Kelompok 2&copy;<script>
+    							Copyright Kelompok 2 &copy;<script>
     								document.write(new Date().getFullYear());
     							</script> All rights reserved </a>
     							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -37,17 +37,21 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="<?= base_url('assets/'); ?>js/jquery-3.3.1.min.js"></script>
     <script src="<?= base_url('assets/'); ?>js/bootstrap.min.js"></script>
+    <script src="<?= base_url('assets/'); ?>js/jquery-3.3.1.min.js"></script>
     <script src="<?= base_url('assets/'); ?>js/jquery.nice-select.min.js"></script>
     <script src="<?= base_url('assets/'); ?>js/jquery-ui.min.js"></script>
     <script src="<?= base_url('assets/'); ?>js/jquery.slicknav.js"></script>
     <script src="<?= base_url('assets/'); ?>js/mixitup.min.js"></script>
     <script src="<?= base_url('assets/'); ?>js/owl.carousel.min.js"></script>
     <script src="<?= base_url('assets/'); ?>js/main.js"></script>
-
-
-
+    <script src="<?= base_url('assets/'); ?>js/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url('assets/'); ?>js/alert-script.js"></script>
+    <script>
+    	$(document).ready(function() {
+    		$('select').not('.disabled').formSelect();
+    	});
+    </script>
     </body>
 
     </html>

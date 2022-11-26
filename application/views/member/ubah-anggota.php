@@ -3,46 +3,45 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-7">
-				<?= form_open_multipart('member/ubahprofil'); ?>
-				<div class="form-group row">
-					<label for="email" class="col-sm-2 col-form-label">Email</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="email" name="email" value="<?= $user['email']; ?>" readonly>
+				<div class="card">
+					<div class="card-footer w-100 primary-btn">
+						Ubah Profil
 					</div>
-				</div>
-				<div class="form-group row">
-					<label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="nama" name="nama" value="<?= $user['nama']; ?>">
-						<?= form_error('nama', '<small class="text-danger pl3">', '</small>'); ?>
-					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-sm-2">Gambar</div>
-					<div class="col-sm-10">
-						<div class="row">
-							<div class="col-sm-3">
-
-								<img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail" alt="">
-							</div>
-							<div class="col-sm-9">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="image" name="image">
-									<label class="custom-file-label" for="image">Pilih file</label>
+					<div class="row no-gutters">
+						<div class="col">
+							<div class="card-block px-3 col-md-7">
+								<br>
+								<div>
+									<?= $this->session->flashdata('pesan'); ?>
+									<form action="<?= base_url(); ?>home/updateProfil" method="post">
+										<div class="mb-3">
+											<h6><label class="text-dark"><b>Nama Lengkap</b></label></h6>
+											<input type="text" name="nama" id="nama" value="<?= $user['nama']; ?>" class="form-control form-control-user  border-success" required>
+										</div>
+										<div class="mb-3">
+											<h6><label class="text-dark"><b>Nomor Telepon</b></label></h6>
+											<input type="text" name="tlp" id="tlp" value="<?= $user['tlp']; ?>" class="form-control form-control-user  border-success" required>
+										</div>
+										<div class="mb-3">
+											<h6><label class="text-dark"><b>Email</b></label></h6>
+											<input type="text" name="email" id="email" value="<?= $user['email']; ?>" class="form-control form-control-user border-success" required>
+											<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+										</div>
+										<div class="mb-3">
+											<h6><label class="text-dark"><b>Alamat</b></label></h6>
+											<textarea id="alamat" name="alamat" class="form-control form-control-user  border-success" required><?= $user['alamat']; ?></textarea>
+										</div>
+										<button type="submit" value="submit" class="btn btn-outline-success">Ubah</button>
+									</form>
+									</br>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="form-group row justify-content-end">
-					<div class="col-sm-10">
-						<button type="submit" class="primary-btn">Ubah</button>
-						<button class="primary-btn" onclick="window.history.go(-1)"> Kembali</button>
+					<div class="card-footer w-100 primary-btn">
+						&nbsp;
 					</div>
 				</div>
-				</form>
-
-
 			</div>
 		</div>
 	</div>

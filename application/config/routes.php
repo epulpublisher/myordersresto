@@ -52,18 +52,3 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'beranda';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-$route['api/mahasiswa'] = 'api/GetMahasiswa/index';
-$route['api/mahasiswa/nim/(:any)'] = 'api/GetMahasiswa/MahasiswaById/$1';
-$route['api/mahasiswa/add'] = 'api/GetMahasiswa/AddMahasiswa';
-$route['api/mahasiswa/update/(:any)'] = 'api/GetMahasiswa/UpdateMahasiswa/$1';
-$route['api/mahasiswa/delete/(:any)'] = 'api/GetMahasiswa/DeleteMahasiswa/$1';
-
-$route['mahasiswa'] = 'Mahasiswa/index';
-$route['mahasiswa/create'] = 'Mahasiswa/create';
-$route['mahasiswa/edit'] = 'Mahasiswa/edit';
-$route['mahasiswa/delete'] = 'Mahasiswa/delete';
-
-
-$route['home/update_cart/(:any)'] = 'home/update_cart/$1';
-$route['home/post_cart/(:any)'] = 'home/post_cart/$1';
