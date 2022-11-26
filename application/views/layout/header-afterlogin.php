@@ -6,7 +6,7 @@
 	<meta name="description" content="Ogani Template">
 	<meta name="keywords" content="Ogani, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" href="<?= base_url('assets/img/logo/'); ?>fav.png">
+	<link rel="icon" type="image/png" href="<?= base_url('assets/logo/'); ?>fav.png">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Myordersresto | <?= $judul; ?></title>
 
@@ -34,7 +34,7 @@
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#"><img src="<?= base_url('assets/'); ?>img/logo-resto.png" alt=""></a>
+			<a href="#"><img src="<?= base_url('assets/'); ?>img/logo.png" alt=""></a>
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
@@ -93,7 +93,7 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/'); ?>img/logo-resto.png" alt=""></a>
+						<a href="<?= base_url(); ?>"><img src="<?= base_url('assets/'); ?>img/logo.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
