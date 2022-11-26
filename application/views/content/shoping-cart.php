@@ -12,7 +12,7 @@
 								<th>Harga</th>
 								<th>Jumlah</th>
 								<th>Total</th>
-								<th></th>
+								<th>Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -22,7 +22,7 @@
 								<tr>
 									<form action="<?php echo base_url(); ?>home/update_cart/<?= $b['id']; ?>" method="post">
 										<td class="shoping__cart__item">
-											<img src="<?php echo myadminresto(); ?>assets/img/upload/<?= $b['image']; ?>" width="200" height="200" alt="">
+											<img src="<?php echo myadminresto(); ?>assets/img/upload/<?= $b['image']; ?>" class="img-fluid" alt="Responsive image">
 											<h5><?= $b['nama_menu']; ?></h5>
 										</td>
 										<td class="shoping__cart__price">

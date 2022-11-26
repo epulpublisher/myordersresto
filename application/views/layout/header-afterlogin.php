@@ -6,7 +6,7 @@
 	<meta name="description" content="Ogani Template">
 	<meta name="keywords" content="Ogani, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" href="<?= base_url('assets/logo/'); ?>fav.png">
+	<link rel="icon" type="image/png" href="<?= base_url('assets/img/'); ?>fav.png">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Myordersresto | <?= $judul; ?></title>
 

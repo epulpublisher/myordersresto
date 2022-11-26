@@ -27,7 +27,8 @@ class Beranda extends CI_Controller
 
 	public function kontak()
 	{
-		$this->load->view('layout/header-beforelogin');
+		$data['judul'] = "Kontak";
+		$this->load->view('layout/header-beforelogin', $data);
 		$this->load->view('content/kontak');
 		$this->load->view('layout/footer');
 	}
