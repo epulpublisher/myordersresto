@@ -14,7 +14,8 @@ class Home extends CI_Controller
 	public function index()
 	{
 		$data['judul'] = 'Pesan';
-		$data['user'] = $this->session->userdata();
+		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$data['menu'] =	json_decode($this->curl->simple_get($this->api . 'menu'), true);
 		$data['promo'] = json_decode($this->curl->simple_get($this->api . 'menu/promo'), true);
 		$id_member = $this->session->userdata('id');
@@ -29,7 +30,8 @@ class Home extends CI_Controller
 	public function makanan()
 	{
 		$data['judul'] = 'Pesan';
-		$data['user'] = $this->session->userdata();
+		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$data['menu'] =	json_decode($this->curl->simple_get($this->api . 'menu/makanan'), true);
 		$data['promo'] = json_decode($this->curl->simple_get($this->api . 'menu/promo'), true);
 		$id_member = $this->session->userdata('id');
@@ -43,7 +45,8 @@ class Home extends CI_Controller
 	public function minuman()
 	{
 		$data['judul'] = 'Pesan';
-		$data['user'] = $this->session->userdata();
+		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$data['menu'] =	json_decode($this->curl->simple_get($this->api . 'menu/minuman'), true);
 		$data['promo'] = json_decode($this->curl->simple_get($this->api . 'menu/promo'), true);
 		$id_member = $this->session->userdata('id');
@@ -57,7 +60,8 @@ class Home extends CI_Controller
 	public function buah()
 	{
 		$data['judul'] = 'Pesan';
-		$data['user'] = $this->session->userdata();
+		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$data['menu'] =	json_decode($this->curl->simple_get($this->api . 'menu/buah'), true);
 		$data['promo'] = json_decode($this->curl->simple_get($this->api . 'menu/promo'), true);
 		$id_member = $this->session->userdata('id');
@@ -102,7 +106,8 @@ class Home extends CI_Controller
 	public function shopingcart()
 	{
 		$data['judul'] = 'Pesan';
-		$data['user'] = $this->session->userdata();
+		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$id_member = $this->session->userdata('id');
 		$data['bymember_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/bymember/' . $id_member), true);
 		$data['jml_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/jmlbymember/' . $id_member), true);
@@ -165,7 +170,8 @@ class Home extends CI_Controller
 		if ($this->form_validation->run() == false) {
 			$this->session->set_flashdata('pesan', 11);
 			$data['judul'] = 'Pesan';
-			$data['user'] = $this->session->userdata();
+			$id_member = $this->session->userdata('id');
+			$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 			$id_member = $this->session->userdata('id');
 			$data['bymember_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/bymember/' . $id_member), true);
 			$data['jml_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/jmlbymember/' . $id_member), true);
@@ -194,7 +200,8 @@ class Home extends CI_Controller
 			$response = curl_exec($curl);
 			curl_close($curl);
 			$data['judul'] = 'Invoice Pesanan';
-			$data['user'] = $this->session->userdata();
+			$id_member = $this->session->userdata('id');
+			$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 			$data['bykode_pesanan'] = json_decode($this->curl->simple_get($this->api . 'pesanan/bykode/' . $kode_pesanan), true);
 			$data['dt_pesanan'] = json_decode($this->curl->simple_get($this->api . 'dtpesanan/bykode/' . $kode_pesanan), true);
 			$sroot = $_SERVER['DOCUMENT_ROOT'];
@@ -212,11 +219,23 @@ class Home extends CI_Controller
 		}
 	}
 
+	public function tim()
+	{
+		$data['judul'] = 'Profil Saya';
+		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
+		$data['rp_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/rpbymember/' . $id_member), true);
+		$data['jml_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/jmlbymember/' . $id_member), true);
+		$this->load->view('layout/header-afterlogin', $data);
+		$this->load->view('content/tim');
+		$this->load->view('layout/footer');
+	}
+
 	public function kontak()
 	{
 		$data['judul'] = 'Profil Saya';
-		$data['user'] = $this->session->userdata();
 		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$data['rp_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/rpbymember/' . $id_member), true);
 		$data['jml_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/jmlbymember/' . $id_member), true);
 		$this->load->view('layout/header-afterlogin', $data);
@@ -227,8 +246,8 @@ class Home extends CI_Controller
 	public function myprofile()
 	{
 		$data['judul'] = 'Profil Saya';
-		$data['user'] = $this->session->userdata();
 		$id_member = $this->session->userdata('id');
+		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$data['rp_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/rpbymember/' . $id_member), true);
 		$data['jml_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/jmlbymember/' . $id_member), true);
 		$this->load->view('layout/header-afterlogin', $data);
@@ -255,20 +274,12 @@ class Home extends CI_Controller
 		$data['user'] = json_decode($this->curl->simple_get($this->api . '/member/id/' . $id_member), true);
 		$data['rp_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/rpbymember/' . $id_member), true);
 		$data['jml_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/jmlbymember/' . $id_member), true);
-
-		$this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim', [
-			'required' => 'Nama tidak Boleh Kosong'
+		$this->form_validation->set_rules('tlp', 'Telepon', 'required|trim|numeric', [
+			'numeric' => 'Nomor telepon tidak benar!',
 		]);
-		$this->form_validation->set_rules('tlp', 'Telepon', 'required|trim', [
-			'required' => 'NIP tidak Boleh Kosong'
+		$this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email', [
+			'valid_email' => 'Email tidak benar!',
 		]);
-		$this->form_validation->set_rules('email', 'Email', 'required|trim', [
-			'required' => 'Email tidak Boleh Kosong'
-		]);
-		$this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
-			'required' => 'Alamat tidak Boleh Kosong'
-		]);
-
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layout/header-afterlogin', $data);
 			$this->load->view('member/ubah-anggota', $data);
@@ -295,6 +306,7 @@ class Home extends CI_Controller
 			));
 			$response = curl_exec($curl);
 			curl_close($curl);
+			$this->session->set_flashdata('pesan', 10);
 			redirect(base_url() . 'home/ubahprofil');
 		}
 	}

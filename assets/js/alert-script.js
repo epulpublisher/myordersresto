@@ -73,7 +73,7 @@ if (flashData == 1) {
 } else if (flashData == 10) {
 	Swal.fire({
 		icon: 'success',
-		title: 'Berhasil update jumlah',
+		title: 'Berhasil update',
 		showConfirmButton: false,
 		timer: 1700
 	});

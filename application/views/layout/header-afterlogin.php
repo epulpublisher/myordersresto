@@ -132,8 +132,7 @@
 							<span>Informasi</span>
 						</div>
 						<ul>
-							<li><a href="#">Panduan Pengguna</a></li>
-							<li><a href="#">Tentang Kami</a></li>
+							<li><a href="<?= base_url(); ?>home/tim">Tentang Kami</a></li>
 						</ul>
 					</div>
 				</div>

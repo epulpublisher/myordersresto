@@ -16,17 +16,17 @@
 									<form action="<?= base_url(); ?>home/ubahPassword" method="post">
 										<div class="mb-3">
 											<h6><label class="text-dark"><b>Kata Sandi Sekarang</b></label></h6>
-											<input type="text" name="password_sekarang" id="password_sekarang" class="form-control form-control-user  border-success" required>
+											<input type="password" name="password_sekarang" id="password_sekarang" class="form-control form-control-user  border-success" required>
 											<?= form_error('password_sekarang', '<p class="text-danger pl-3">', '</p>'); ?>
 										</div>
 										<div class="mb-3">
 											<h6><label class="text-dark"><b>Kata Sandi Baru</b></label></h6>
-											<input type="text" name="password_baru1" id="password_baru1" class="form-control form-control-user  border-success" required>
+											<input type="password" name="password_baru1" id="password_baru1" class="form-control form-control-user  border-success" required>
 											<?= form_error('password_baru1', '<p class="text-danger pl-3">', '</p>'); ?>
 										</div>
 										<div class="mb-3">
 											<h6><label class="text-dark"><b>Konfimasi Kata Sandi Baru</b></label></h6>
-											<input type="text" name="password_baru2" id="password_baru2" class="form-control form-control-user border-success" required>
+											<input type="password" name="password_baru2" id="password_baru2" class="form-control form-control-user border-success" required>
 											<?= form_error('password_baru2', '<p class="text-danger pl-3">', '</p>'); ?>
 										</div>
 										</br>
