@@ -21,7 +21,6 @@ class Home extends CI_Controller
 		$id_member = $this->session->userdata('id');
 		$data['jml_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/jmlbymember/' . $id_member), true);
 		$data['rp_keranjang'] = json_decode($this->curl->simple_get($this->api . '/keranjang/rpbymember/' . $id_member), true);
-
 		$this->load->view('layout/header-afterlogin', $data);
 		$this->load->view('content/pesan-semua', $data);
 		$this->load->view('layout/footer');
