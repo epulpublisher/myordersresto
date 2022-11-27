@@ -51,7 +51,7 @@
 				foreach ($dt_pesanan as $dt) {
 				?>
 					<tr>
-						<td class="no"><?= $b++; ?></td>
+						<td class="total"><?= $b++; ?></td>
 						<td class="desc">
 							<h3><?= $dt['nama_menu']; ?></h3>
 						</td>
