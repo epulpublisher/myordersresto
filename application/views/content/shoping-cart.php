@@ -5,6 +5,7 @@
 			<div class="col-lg-12">
 				<div class="shoping__cart__table">
 					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
+					<label class="btn btn-warning"> Warning : Klik tombol update setelah mengubah jumlah dari menu.</label>
 					<table>
 						<thead>
 							<tr>
